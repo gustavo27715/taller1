@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ncf52k0cd3fo"]
+
+[ext_resource type="Script" uid="uid://i2nf083o33s6" path="res://src/scenes/level_1.gd" id="1_fsauj"]
+
+[node name="Level1" type="Control" unique_id=709630109]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fsauj")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=15404037]
+propagate_maximum_size = false
+layout_mode = 0
+offset_left = 333.0
+offset_top = 180.0
+offset_right = 1483.0
+offset_bottom = 831.0
+offset_transform_position = Vector2(250, 200)
+
+[node name="BtnTomate" type="Button" parent="GridContainer" unique_id=259655368]
+layout_mode = 2
+text = "Tomate 🍅
+"
+
+[node name="BtnLechuga" type="Button" parent="GridContainer" unique_id=1690813933]
+layout_mode = 2
+text = "Lechuga 🥬
+"
+
+[node name="BtnCarne" type="Button" parent="GridContainer" unique_id=1784306081]
+layout_mode = 2
+text = "Carne 🥩
+"
+
+[node name="BtnQueso" type="Button" parent="GridContainer" unique_id=1255354389]
+layout_mode = 2
+text = "Queso 🧀
+"
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=1249384363]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Selecciona un Ingrediente"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="GridContainer" unique_id=1473608435]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(25, 0)
+theme_override_font_sizes/font_size = 34
+text = "Esperando selección...
+"
+
+[node name="BtnVolver" type="Button" parent="GridContainer" unique_id=1787465653]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "← Volver
+"
