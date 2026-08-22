@@ -1,0 +1,27 @@
+# Godot-specific ignores
+.godot/
+.import/
+export_presets.cfg
+*.import
+*.godot
+*.tmp
+
+# Editor-specific
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# User-specific
+*.user
+*.user.chris
+*.user.john
+
+# Version control
+.DS_Store
+Thumbs.db
+
+# Godot 4 specific
+.godot/
+.import/
+export_presets.cfg
