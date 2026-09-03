@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="proyecto_sprint1"
-run/main_scene="uid://bkoyuq350gray"
+run/main_scene="uid://bhvkc85vrtsx1"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*uid://l4327nmdgwma"
 
 [display]
 

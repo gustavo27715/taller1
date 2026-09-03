@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ncf52k0cd3fo"]
 
-[ext_resource type="Script" uid="uid://i2nf083o33s6" path="res://src/scenes/level_1.gd" id="1_fsauj"]
+[ext_resource type="Script" uid="uid://i2nf083o33s6" path="res://src/scenes/simulation/step_1_base.gd" id="1_vfrwq"]
 
-[node name="Level1" type="Control" unique_id=709630109]
+[node name="Step1Base" type="Control" unique_id=709630109]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_fsauj")
+script = ExtResource("1_vfrwq")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=15404037]
 propagate_maximum_size = false

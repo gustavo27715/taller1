@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bkoyuq350gray"]
+
+[ext_resource type="Script" uid="uid://c7cv766ioyxua" path="res://src/scenes/menu/menu_panel.gd" id="1_3fi7p"]
+
+[node name="Main" type="Control" unique_id=667920462]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3fi7p")
+
+[node name="VBoxMenu" type="VBoxContainer" parent="." unique_id=354818758]
+propagate_maximum_size = false
+layout_mode = 0
+offset_left = 273.0
+offset_top = 186.0
+offset_right = 898.0
+offset_bottom = 503.0
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxMenu" unique_id=507813400]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Simulador Interactivo
+"
+horizontal_alignment = 1
+
+[node name="BtnSimular" type="Button" parent="VBoxMenu" unique_id=954274350]
+layout_mode = 2
+text = "Iniciar Simulación
+"
+
+[node name="BtnConfig" type="Button" parent="VBoxMenu" unique_id=977609838]
+layout_mode = 2
+text = "Configuración"
+
+[node name="BtnCredits" type="Button" parent="VBoxMenu" unique_id=2110435746]
+layout_mode = 2
+text = "Créditos
+"
+
+[node name="BtnSalir" type="Button" parent="VBoxMenu" unique_id=1244599794]
+layout_mode = 2
+text = "Salir
+"
