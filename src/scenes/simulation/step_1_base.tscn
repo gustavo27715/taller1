@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ncf52k0cd3fo"]
+
+[ext_resource type="Script" uid="uid://i2nf083o33s6" path="res://src/scenes/simulation/step_1_base.gd" id="1_vfrwq"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="2_4s1qs"]
+
+[node name="Step1Base" type="Control" unique_id=709630109]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vfrwq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1980330590]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -7.0
+offset_top = 61.0
+offset_right = 1180.0
+offset_bottom = 773.0
+offset_transform_position = Vector2(250, 200)
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1249384363]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Gestiona tu Dieta"
+horizontal_alignment = 1
+
+[node name="LblRemaining" type="Label" parent="VBoxContainer" unique_id=747445550]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+text = "Disponible: $20000"
+
+[node name="LblTotal" type="Label" parent="VBoxContainer" unique_id=1473608435]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(25, 0)
+theme_override_font_sizes/font_size = 34
+text = "Total gastado: $0
+"
+
+[node name="LblBudget" type="Label" parent="VBoxContainer" unique_id=1004504987]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+text = "Presupuesto: $20000
+"
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=762475909]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BtnBase1" type="Button" parent="VBoxContainer/GridContainer" unique_id=2131947065]
+layout_mode = 2
+text = "🥗 Comida Saludable ($7000)
+"
+
+[node name="BtnBase2" type="Button" parent="VBoxContainer/GridContainer" unique_id=1045368302]
+layout_mode = 2
+text = "🍔 Comida Rápida ($3000)
+"
+
+[node name="BtnItem1" type="Button" parent="VBoxContainer/GridContainer" unique_id=1388691411]
+layout_mode = 2
+text = "🥦 Vegetales Extra ($1500)"
+
+[node name="BtnItem2" type="Button" parent="VBoxContainer/GridContainer" unique_id=605868242]
+layout_mode = 2
+text = "🥤 Bebida Azucarada ($800)
+"
+
+[node name="BtnVolver" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("2_4s1qs")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "← Volver al Menú"
+target_scene = "uid://bkoyuq350gray"

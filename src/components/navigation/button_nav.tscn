@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dxfon1g3qkegv"]
+
+[ext_resource type="Script" uid="uid://d2t344gcxbm76" path="res://src/components/navigation/button_nav.gd" id="1_g4eog"]
+
+[node name="ButtonNav" type="Button" unique_id=1890956143]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4eog")
