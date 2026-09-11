@@ -16,8 +16,8 @@ var selection: Dictionary = {
 }
 
 var current_total: int = 0
-var monthly_budget: int = 20000   # 💰 Presupuesto mensual
-var remaining_budget: int = 20000 # 💰 Presupuesto restante
+var monthly_budget: int = 20000      # 💰 Presupuesto mensual
+var remaining_budget: int = 20000    # 💰 Presupuesto restante
 
 func _ready() -> void:
 	EventBus.base_selected.connect(_on_base_selected)

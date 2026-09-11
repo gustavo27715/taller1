@@ -56,5 +56,13 @@ horizontal_alignment = 1
 [node name="BtnBack" parent="." unique_id=1890956143 instance=ExtResource("1_w2i6q")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 510.0
+offset_top = 367.0
+offset_right = 652.0
+offset_bottom = 398.0
+grow_horizontal = 1
+grow_vertical = 1
 text = "← Volver al Menú"
 target_scene = "uid://bkoyuq350gray"
