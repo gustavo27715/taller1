@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://vrxwbtl1g7ki"]
+
+[ext_resource type="Texture2D" uid="uid://l74e2esjcbrv" path="res://src/scenes/gamification/assets/starGold.png" id="1_0wghw"]
+[ext_resource type="Script" uid="uid://tebwey3qlfrl" path="res://src/scenes/gamification/falling_food.gd" id="1_bg144"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vxgbt"]
+bounce = 0.9
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bg144"]
+radius = 32.0
+
+[node name="FallingFood" type="RigidBody2D" unique_id=85995023 groups=["collectable"]]
+physics_material_override = SubResource("PhysicsMaterial_vxgbt")
+contact_monitor = true
+max_contacts_reported = 7
+script = ExtResource("1_bg144")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2132512971 groups=["collectable"]]
+texture = ExtResource("1_0wghw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1233948505]
+shape = SubResource("CircleShape2D_bg144")

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bbmyhinsxqk5v"]
+
+[ext_resource type="Script" uid="uid://c83raxxsrdko7" path="res://src/scenes/buying_process/purchase_invoice.gd" id="1_lm570"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="2_xyxq8"]
+
+[node name="PurchaseInvoice" type="Control" unique_id=2093080043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lm570")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2123715224]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblSubtotal" type="Label" parent="VBoxContainer" unique_id=964284307]
+layout_mode = 2
+
+[node name="LblCoupon" type="Label" parent="VBoxContainer" unique_id=1273108424]
+layout_mode = 2
+
+[node name="BtnConfirm" type="Label" parent="VBoxContainer" unique_id=1296662910]
+layout_mode = 2
+
+[node name="BtnBack" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("2_xyxq8")]
+layout_mode = 2
+target_scene = "uid://ncf52k0cd3fo"

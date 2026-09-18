@@ -15,11 +15,13 @@ var selection: Dictionary = {
 	"item_2": 0
 }
 
+var coupons: Array[Dictionary] = []
 var current_total: int = 0
 var monthly_budget: int = 20000      # 💰 Presupuesto mensual
 var remaining_budget: int = 20000    # 💰 Presupuesto restante
 
 func _ready() -> void:
+	EventBus.coupon_obtained.connect(_on_coupon_obtained)
 	EventBus.base_selected.connect(_on_base_selected)
 	EventBus.item_added.connect(_on_item_added)
 	_update_total()
@@ -33,6 +35,10 @@ func _on_item_added(item_id: String) -> void:
 	print("GlobalManager: Item añadido: ", item_id)
 	selection[item_id] += 1
 	_update_total()
+
+func _on_coupon_obtained(coupon: Dictionary) -> void:
+	print("Cupón obtenido: ", coupon)
+	coupons.append(coupon)
 
 func _update_total() -> void:
 	current_total = 0

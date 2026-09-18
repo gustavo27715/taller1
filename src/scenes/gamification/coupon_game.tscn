@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://df2hj7vgkx6ds"]
+
+[ext_resource type="Script" uid="uid://cegmxdp3ecpa2" path="res://src/scenes/gamification/coupon_game.gd" id="1_04lhb"]
+[ext_resource type="Texture2D" uid="uid://cteer6mjawiug" path="res://alienGreen_suit.png" id="1_fmnlb"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="1_oxamv"]
+[ext_resource type="Script" uid="uid://c72uyv6vnwuut" path="res://src/scenes/gamification/player.gd" id="2_3tfhq"]
+[ext_resource type="Texture2D" uid="uid://buj631qcguftf" path="res://src/scenes/gamification/assets/elementStone051.png" id="2_pcwwn"]
+[ext_resource type="Script" uid="uid://coxqpjiswxtfe" path="res://src/scenes/gamification/spawner.gd" id="3_04lhb"]
+[ext_resource type="PackedScene" uid="uid://vrxwbtl1g7ki" path="res://src/scenes/gamification/falling_food.tscn" id="5_1u2kp"]
+[ext_resource type="Texture2D" uid="uid://movcdnfk1my3" path="res://src/scenes/gamification/assets/alienBeige_round.png" id="5_ikb2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpdgb"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbmut"]
+size = Vector2(158, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2r5q"]
+size = Vector2(521.3407, 26.410652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tfhq"]
+size = Vector2(521.3407, 26.410652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikb2h"]
+size = Vector2(721, 20)
+
+[node name="CouponGame" type="Node2D" unique_id=794875141]
+script = ExtResource("1_04lhb")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1606466512]
+script = ExtResource("2_3tfhq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=816979688]
+position = Vector2(583, 465)
+texture = ExtResource("1_fmnlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1399604316]
+position = Vector2(583, 465)
+shape = SubResource("RectangleShape2D_gpdgb")
+
+[node name="AreaRecolect" type="Area2D" parent="Player" unique_id=293998823]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/AreaRecolect" unique_id=890059157]
+position = Vector2(582, 418)
+rotation = -0.0044257045
+scale = Vector2(2.308389, 0.20232892)
+texture = ExtResource("5_ikb2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaRecolect" unique_id=1551389181]
+position = Vector2(582, 417)
+shape = SubResource("RectangleShape2D_mbmut")
+
+[node name="Walls" type="Area2D" parent="." unique_id=448718816 groups=["walls"]]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1038668654]
+position = Vector2(990.11304, 238.69145)
+rotation = -1.1117108
+scale = Vector2(1.1466709, 1.6848348)
+skew = -0.29302502
+shape = SubResource("RectangleShape2D_e2r5q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1133184180 groups=["walls"]]
+position = Vector2(252, 239.00003)
+rotation = -1.865757
+scale = Vector2(1, 1.3600004)
+shape = SubResource("RectangleShape2D_3tfhq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Walls" unique_id=1338890191]
+position = Vector2(932.31915, 356.0965)
+rotation = 2.0213516
+scale = Vector2(3.858601, 0.30719945)
+texture = ExtResource("2_pcwwn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=1024136308 groups=["walls"]]
+position = Vector2(295.18082, 400.631)
+rotation = 1.29085
+scale = Vector2(3.8777428, 0.30719945)
+texture = ExtResource("2_pcwwn")
+
+[node name="Floor" type="Area2D" parent="." unique_id=1757984038 groups=["floor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2091268505 groups=["floor"]]
+position = Vector2(893.5, 534)
+shape = SubResource("RectangleShape2D_ikb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1475645981]
+position = Vector2(612.5, 534.25)
+scale = Vector2(5.85, 0.23928504)
+texture = ExtResource("2_pcwwn")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1370388455 groups=["spawner"]]
+position = Vector2(696, 49)
+script = ExtResource("3_04lhb")
+max_active_items = 3
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1938679047]
+
+[node name="Spawner2" type="Node2D" parent="." unique_id=601289919 groups=["spawner"]]
+position = Vector2(606, 80)
+script = ExtResource("3_04lhb")
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner2" unique_id=970035538]
+
+[node name="Spawner3" type="Node2D" parent="." unique_id=2052896585 groups=["spawner"]]
+position = Vector2(555, 36)
+script = ExtResource("3_04lhb")
+max_active_items = 3
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner3" unique_id=1044741207]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1616956677]
+
+[node name="Objective" type="Label" parent="CanvasLayer" unique_id=1718245744]
+offset_left = 548.0
+offset_top = 6.0
+offset_right = 696.0
+offset_bottom = 29.0
+text = "Ingredientes: 0 / 10"
+
+[node name="BtnBack" parent="CanvasLayer" unique_id=1890956143 instance=ExtResource("1_oxamv")]
+offset_left = 482.0
+offset_top = 583.0
+offset_right = -470.0
+offset_bottom = -8.0
+text = "Volver
+"
+target_scene = "uid://ciujhoaln7odh"
+
+[node name="ResultPanel" type="Panel" parent="CanvasLayer" unique_id=2009725956]
+visible = false
+offset_left = 353.0
+offset_top = 11.0
+offset_right = 393.0
+offset_bottom = 51.0
+
+[node name="BtnReturn" parent="CanvasLayer/ResultPanel" unique_id=1773284129 instance=ExtResource("1_oxamv")]
+layout_mode = 1
+offset_left = 41.0
+offset_top = 572.0
+offset_right = 9.0
+offset_bottom = 540.0
+target_scene = "uid://ciujhoaln7odh"
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel" unique_id=1649238475]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 177.0
+offset_right = 337.0
+offset_bottom = 226.0
+text = "¡Cupón obtenido!
+"
+
+[connection signal="collected_food" from="Player" to="." method="_on_player_collected_food"]
