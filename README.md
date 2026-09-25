@@ -1,3 +1,6 @@
+# NOTA IMPORTANTE: Primero ganar el juego para conseguir el descuento, después pasar al menú de compra y pasar a facturación
+
+
 # Proyecto Integrador - Sprint 1
 
 ## Descripción
