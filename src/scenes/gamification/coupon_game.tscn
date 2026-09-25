@@ -13,86 +13,88 @@
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbmut"]
-size = Vector2(158, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2r5q"]
-size = Vector2(521.3407, 26.410652)
+size = Vector2(146, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tfhq"]
-size = Vector2(521.3407, 26.410652)
+size = Vector2(584.7298, 26.410652)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikb2h"]
-size = Vector2(721, 20)
+size = Vector2(1351.887, 15.992676)
 
 [node name="CouponGame" type="Node2D" unique_id=794875141]
 script = ExtResource("1_04lhb")
+max_spawned_items = 20
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1606466512]
 script = ExtResource("2_3tfhq")
+speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=816979688]
-position = Vector2(583, 465)
+position = Vector2(594.82416, 503.439)
 texture = ExtResource("1_fmnlb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1399604316]
-position = Vector2(583, 465)
+position = Vector2(594.82416, 503.439)
 shape = SubResource("RectangleShape2D_gpdgb")
 
 [node name="AreaRecolect" type="Area2D" parent="Player" unique_id=293998823]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/AreaRecolect" unique_id=890059157]
-position = Vector2(582, 418)
+position = Vector2(593.82416, 456.439)
 rotation = -0.0044257045
 scale = Vector2(2.308389, 0.20232892)
 texture = ExtResource("5_ikb2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaRecolect" unique_id=1551389181]
-position = Vector2(582, 417)
+position = Vector2(593.82416, 455.439)
 shape = SubResource("RectangleShape2D_mbmut")
 
-[node name="Walls" type="Area2D" parent="." unique_id=448718816 groups=["walls"]]
+[node name="Walls" type="CharacterBody2D" parent="." unique_id=610317276 groups=["walls"]]
 disable_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1038668654]
-position = Vector2(990.11304, 238.69145)
-rotation = -1.1117108
-scale = Vector2(1.1466709, 1.6848348)
-skew = -0.29302502
-shape = SubResource("RectangleShape2D_e2r5q")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1133184180 groups=["walls"]]
-position = Vector2(252, 239.00003)
+position = Vector2(926.99994, 274)
+rotation = -1.2046508
+scale = Vector2(1, 1.3600004)
+shape = SubResource("RectangleShape2D_3tfhq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=204286941 groups=["walls"]]
+position = Vector2(261.21368, 269.3258)
 rotation = -1.865757
 scale = Vector2(1, 1.3600004)
 shape = SubResource("RectangleShape2D_3tfhq")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Walls" unique_id=1338890191]
-position = Vector2(932.31915, 356.0965)
-rotation = 2.0213516
-scale = Vector2(3.858601, 0.30719945)
+position = Vector2(939.7711, 254.36055)
+rotation = -1.2063546
+scale = Vector2(3.0217137, 0.30719945)
 texture = ExtResource("2_pcwwn")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=1024136308 groups=["walls"]]
-position = Vector2(295.18082, 400.631)
-rotation = 1.29085
-scale = Vector2(3.8777428, 0.30719945)
+position = Vector2(259.10446, 275.14636)
+rotation = 1.2730696
+scale = Vector2(2.690765, 0.30719945)
 texture = ExtResource("2_pcwwn")
 
-[node name="Floor" type="Area2D" parent="." unique_id=1757984038 groups=["floor"]]
+[node name="Floor" type="CharacterBody2D" parent="." unique_id=435482540 groups=["floor"]]
+rotation = 0.01368624
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2091268505 groups=["floor"]]
-position = Vector2(893.5, 534)
+position = Vector2(600.4237, 539.08844)
+rotation = -0.013735716
 shape = SubResource("RectangleShape2D_ikb2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1475645981]
-position = Vector2(612.5, 534.25)
+position = Vector2(608.5394, 546.72284)
+rotation = -0.010606988
 scale = Vector2(5.85, 0.23928504)
 texture = ExtResource("2_pcwwn")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1370388455 groups=["spawner"]]
-position = Vector2(696, 49)
+position = Vector2(923, 19)
 script = ExtResource("3_04lhb")
-max_active_items = 3
+max_active_items = 6
+spawn_interval = 1.5
 collectable_scene = ExtResource("5_1u2kp")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1938679047]
@@ -100,14 +102,17 @@ collectable_scene = ExtResource("5_1u2kp")
 [node name="Spawner2" type="Node2D" parent="." unique_id=601289919 groups=["spawner"]]
 position = Vector2(606, 80)
 script = ExtResource("3_04lhb")
+max_active_items = 6
+spawn_interval = 1.5
 collectable_scene = ExtResource("5_1u2kp")
 
 [node name="Timer" type="Timer" parent="Spawner2" unique_id=970035538]
 
 [node name="Spawner3" type="Node2D" parent="." unique_id=2052896585 groups=["spawner"]]
-position = Vector2(555, 36)
+position = Vector2(256, 8)
 script = ExtResource("3_04lhb")
-max_active_items = 3
+max_active_items = 6
+spawn_interval = 1.5
 collectable_scene = ExtResource("5_1u2kp")
 
 [node name="Timer" type="Timer" parent="Spawner3" unique_id=1044741207]
@@ -115,43 +120,53 @@ collectable_scene = ExtResource("5_1u2kp")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1616956677]
 
 [node name="Objective" type="Label" parent="CanvasLayer" unique_id=1718245744]
-offset_left = 548.0
-offset_top = 6.0
-offset_right = 696.0
-offset_bottom = 29.0
+offset_left = 533.0
+offset_top = 124.0
+offset_right = 681.0
+offset_bottom = 147.0
 text = "Ingredientes: 0 / 10"
 
 [node name="BtnBack" parent="CanvasLayer" unique_id=1890956143 instance=ExtResource("1_oxamv")]
-offset_left = 482.0
-offset_top = 583.0
-offset_right = -470.0
-offset_bottom = -8.0
+offset_left = 492.0
+offset_top = 581.0
+offset_right = -460.0
+offset_bottom = -10.0
 text = "Volver
 "
-target_scene = "uid://ciujhoaln7odh"
+target_scene = "uid://bkoyuq350gray"
 
 [node name="ResultPanel" type="Panel" parent="CanvasLayer" unique_id=2009725956]
 visible = false
-offset_left = 353.0
-offset_top = 11.0
-offset_right = 393.0
-offset_bottom = 51.0
-
-[node name="BtnReturn" parent="CanvasLayer/ResultPanel" unique_id=1773284129 instance=ExtResource("1_oxamv")]
-layout_mode = 1
-offset_left = 41.0
-offset_top = 572.0
-offset_right = 9.0
-offset_bottom = 540.0
-target_scene = "uid://ciujhoaln7odh"
+offset_left = 338.0
+offset_top = -57.0
+offset_right = 378.0
+offset_bottom = -17.0
 
 [node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel" unique_id=1649238475]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 177.0
-offset_right = 337.0
-offset_bottom = 226.0
-text = "¡Cupón obtenido!
+offset_left = 118.0
+offset_top = 267.0
+offset_right = 400.0
+offset_bottom = 316.0
+text = " ¡Cupón obtenido!
 "
+horizontal_alignment = 1
+
+[node name="ResultLabel2" type="Label" parent="CanvasLayer/ResultPanel" unique_id=966732866]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 293.0
+offset_right = 416.0
+offset_bottom = 342.0
+text = "Válido en compras mayores a $9000"
+
+[node name="BtnReturn" parent="CanvasLayer/ResultPanel" unique_id=1773284129 instance=ExtResource("1_oxamv")]
+layout_mode = 1
+offset_left = 253.0
+offset_top = 347.0
+offset_right = 221.0
+offset_bottom = 315.0
+text = "← Volver"
+target_scene = "uid://bkoyuq350gray"
 
 [connection signal="collected_food" from="Player" to="." method="_on_player_collected_food"]

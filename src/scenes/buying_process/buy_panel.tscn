@@ -15,9 +15,9 @@ propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = -1
 offset_left = -7.0
-offset_top = 61.0
+offset_top = 5.0
 offset_right = 1180.0
-offset_bottom = 773.0
+offset_bottom = 717.0
 offset_transform_position = Vector2(250, 200)
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1249384363]
@@ -51,6 +51,7 @@ text = "Total gastado: $0
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=762475909]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="BtnBase1" type="Button" parent="VBoxContainer/GridContainer" unique_id=2131947065]
 layout_mode = 2
@@ -71,14 +72,15 @@ layout_mode = 2
 text = "🥤 Bebida Azucarada ($800)
 "
 
+[node name="BtnContinue" parent="VBoxContainer/GridContainer" unique_id=1488614578 instance=ExtResource("2_a5yq5")]
+custom_minimum_size = Vector2(4, 5)
+layout_mode = 2
+text = "Continuar compra"
+target_scene = "uid://bbmyhinsxqk5v"
+
 [node name="BtnVolver" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("2_a5yq5")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "← Volver al Menú"
 target_scene = "uid://bkoyuq350gray"
-
-[node name="BtnContinue" parent="." unique_id=1488614578 instance=ExtResource("2_a5yq5")]
-layout_mode = 0
-anchors_preset = 0
-target_scene = "uid://bbmyhinsxqk5v"

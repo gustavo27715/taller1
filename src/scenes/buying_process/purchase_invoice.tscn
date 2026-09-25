@@ -8,28 +8,61 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -2.0
-offset_right = -3.0
-offset_bottom = -2.0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = -1.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lm570")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2123715224]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -103.0
+offset_right = 279.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=30902471]
+layout_mode = 2
+text = "🧾 Resumen de Compra"
+horizontal_alignment = 1
 
 [node name="LblSubtotal" type="Label" parent="VBoxContainer" unique_id=964284307]
 layout_mode = 2
+text = "Comida Saludable: 0 × $7000 
+$0\\nComida Rápida: 0 × $3000 
+$0\\nVegetales Extra: 0 × $1500 
+$0\\nBebida Azucarada: 0 × $800 $0\\n--------------------------------\\nSubtotal: $0"
+horizontal_alignment = 1
 
 [node name="LblCoupon" type="Label" parent="VBoxContainer" unique_id=1273108424]
 layout_mode = 2
+text = "Descuento aplicado por cupón: $0"
+horizontal_alignment = 1
 
-[node name="BtnConfirm" type="Label" parent="VBoxContainer" unique_id=1296662910]
+[node name="LblTotal" type="Label" parent="VBoxContainer" unique_id=59576982]
 layout_mode = 2
+text = "TOTAL: $0"
+horizontal_alignment = 1
 
 [node name="BtnBack" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("2_xyxq8")]
 layout_mode = 2
+text = "← Volver"
 target_scene = "uid://ncf52k0cd3fo"
+
+[node name="BtnConfirm" type="Button" parent="VBoxContainer" unique_id=2142571657]
+layout_mode = 2
+text = "Confirmar compra
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=180736490]
+layout_mode = 2

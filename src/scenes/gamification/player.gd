@@ -15,7 +15,6 @@ func _physics_process(_delta: float) -> void:
 	# Debug: mostrar colisiones
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
-		print("Chocando con: ", col.get_collider().name)
 		
 func _on_collect_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("collectable"):
