@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://df2hj7vgkx6ds"]
+
+[ext_resource type="Script" uid="uid://cegmxdp3ecpa2" path="res://src/scenes/gamification/catch_food/coupon_game.gd" id="1_04lhb"]
+[ext_resource type="Texture2D" uid="uid://cteer6mjawiug" path="res://alienGreen_suit.png" id="1_fmnlb"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="1_oxamv"]
+[ext_resource type="Script" uid="uid://c72uyv6vnwuut" path="res://src/scenes/gamification/catch_food/player.gd" id="2_3tfhq"]
+[ext_resource type="Texture2D" uid="uid://buj631qcguftf" path="res://src/scenes/gamification/catch_food/assets/elementStone051.png" id="2_pcwwn"]
+[ext_resource type="Script" uid="uid://coxqpjiswxtfe" path="res://src/scenes/gamification/catch_food/spawner.gd" id="3_04lhb"]
+[ext_resource type="PackedScene" uid="uid://vrxwbtl1g7ki" path="res://src/scenes/gamification/catch_food/falling_food.tscn" id="5_1u2kp"]
+[ext_resource type="Texture2D" uid="uid://movcdnfk1my3" path="res://src/scenes/gamification/catch_food/assets/alienBeige_round.png" id="5_ikb2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpdgb"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbmut"]
+size = Vector2(146, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tfhq"]
+size = Vector2(584.7298, 26.410652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikb2h"]
+size = Vector2(1351.887, 15.992676)
+
+[node name="CouponGame" type="Node2D" unique_id=794875141]
+script = ExtResource("1_04lhb")
+max_spawned_items = 20
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1606466512]
+script = ExtResource("2_3tfhq")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=816979688]
+position = Vector2(594.82416, 503.439)
+texture = ExtResource("1_fmnlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1399604316]
+position = Vector2(594.82416, 503.439)
+shape = SubResource("RectangleShape2D_gpdgb")
+
+[node name="AreaRecolect" type="Area2D" parent="Player" unique_id=293998823]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/AreaRecolect" unique_id=890059157]
+position = Vector2(593.82416, 456.439)
+rotation = -0.0044257045
+scale = Vector2(2.308389, 0.20232892)
+texture = ExtResource("5_ikb2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaRecolect" unique_id=1551389181]
+position = Vector2(593.82416, 455.439)
+shape = SubResource("RectangleShape2D_mbmut")
+
+[node name="Walls" type="CharacterBody2D" parent="." unique_id=610317276 groups=["walls"]]
+disable_mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1133184180 groups=["walls"]]
+position = Vector2(926.99994, 274)
+rotation = -1.2046508
+scale = Vector2(1, 1.3600004)
+shape = SubResource("RectangleShape2D_3tfhq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=204286941 groups=["walls"]]
+position = Vector2(261.21368, 269.3258)
+rotation = -1.865757
+scale = Vector2(1, 1.3600004)
+shape = SubResource("RectangleShape2D_3tfhq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Walls" unique_id=1338890191]
+position = Vector2(939.7711, 254.36055)
+rotation = -1.2063546
+scale = Vector2(3.0217137, 0.30719945)
+texture = ExtResource("2_pcwwn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=1024136308 groups=["walls"]]
+position = Vector2(259.10446, 275.14636)
+rotation = 1.2730696
+scale = Vector2(2.690765, 0.30719945)
+texture = ExtResource("2_pcwwn")
+
+[node name="Floor" type="CharacterBody2D" parent="." unique_id=435482540 groups=["floor"]]
+rotation = 0.01368624
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2091268505 groups=["floor"]]
+position = Vector2(600.4237, 539.08844)
+rotation = -0.013735716
+shape = SubResource("RectangleShape2D_ikb2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1475645981]
+position = Vector2(608.5394, 546.72284)
+rotation = -0.010606988
+scale = Vector2(5.85, 0.23928504)
+texture = ExtResource("2_pcwwn")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1370388455 groups=["spawner"]]
+position = Vector2(923, 19)
+script = ExtResource("3_04lhb")
+max_active_items = 6
+spawn_interval = 1.5
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1938679047]
+
+[node name="Spawner2" type="Node2D" parent="." unique_id=601289919 groups=["spawner"]]
+position = Vector2(606, 80)
+script = ExtResource("3_04lhb")
+max_active_items = 6
+spawn_interval = 1.5
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner2" unique_id=970035538]
+
+[node name="Spawner3" type="Node2D" parent="." unique_id=2052896585 groups=["spawner"]]
+position = Vector2(256, 8)
+script = ExtResource("3_04lhb")
+max_active_items = 6
+spawn_interval = 1.5
+collectable_scene = ExtResource("5_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner3" unique_id=1044741207]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1616956677]
+
+[node name="Objective" type="Label" parent="CanvasLayer" unique_id=1718245744]
+offset_left = 533.0
+offset_top = 124.0
+offset_right = 681.0
+offset_bottom = 147.0
+text = "Ingredientes: 0 / 10"
+
+[node name="BtnBack" parent="CanvasLayer" unique_id=1890956143 instance=ExtResource("1_oxamv")]
+offset_left = 492.0
+offset_top = 581.0
+offset_right = -460.0
+offset_bottom = -10.0
+text = "Volver
+"
+target_scene = "uid://bkoyuq350gray"
+
+[node name="ResultPanel" type="Panel" parent="CanvasLayer" unique_id=2009725956]
+visible = false
+offset_left = 338.0
+offset_top = -57.0
+offset_right = 378.0
+offset_bottom = -17.0
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel" unique_id=1649238475]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 267.0
+offset_right = 400.0
+offset_bottom = 316.0
+text = " ¡Cupón obtenido!
+"
+horizontal_alignment = 1
+
+[node name="ResultLabel2" type="Label" parent="CanvasLayer/ResultPanel" unique_id=966732866]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 293.0
+offset_right = 416.0
+offset_bottom = 342.0
+text = "Válido en compras mayores a $9000"
+
+[node name="BtnReturn" parent="CanvasLayer/ResultPanel" unique_id=1773284129 instance=ExtResource("1_oxamv")]
+layout_mode = 1
+offset_left = 253.0
+offset_top = 347.0
+offset_right = 221.0
+offset_bottom = 315.0
+text = "← Volver"
+target_scene = "uid://bkoyuq350gray"
+
+[connection signal="collected_food" from="Player" to="." method="_on_player_collected_food"]
