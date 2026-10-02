@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c1wrhnf2xr6sd"]
+
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="1_w2i6q"]
+
+[node name="CreditsPanel" type="Control" unique_id=1261974687]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -150.0
+offset_right = 240.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=736437493]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Créditos"
+horizontal_alignment = 1
+
+[node name="LblInfo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Desarrollado por:
+Gustavo Rodriguez :D
+Estudiante de la UAN
+Para la clase:
+Programación de Videojuegos"
+horizontal_alignment = 1
+
+[node name="BtnBack" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("1_w2i6q")]
+layout_mode = 2
+text = "Volver al Menú"
+target_scene = "uid://bkoyuq350gray"

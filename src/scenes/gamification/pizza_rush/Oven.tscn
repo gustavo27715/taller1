@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsbx6vmk8tybq"]
+
+[ext_resource type="Script" uid="uid://beqa2hwd4umme" path="res://src/scenes/gamification/pizza_rush/oven.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://55edtdqt5i48" path="res://src/scenes/gamification/pizza_rush/assets/oven1.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(140, 100)
+
+[node name="Oven" type="Area2D" unique_id=1438724336 groups=["oven"]]
+input_pickable = false
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=545019630]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2042139279]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_1")

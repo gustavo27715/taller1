@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/scenes/stats/stats_panel.gd" id="1_stats"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="2_nav"]
+
+[node name="StatsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stats")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -200.0
+offset_right = 260.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Mi Build"
+horizontal_alignment = 1
+
+[node name="LblPurchased" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Aún no has comprado nada."
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LblStats" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"InfoLabel"
+text = "Salud: 0
+Velocidad: 0
+Salto: 0
+Energía: 0"
+horizontal_alignment = 1
+
+[node name="BtnBack" parent="VBoxContainer" instance=ExtResource("2_nav")]
+layout_mode = 2
+text = "Volver al Menú"
+target_scene = "uid://bkoyuq350gray"

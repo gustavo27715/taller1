@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://bt1crmthdxrf6"]
+
+[ext_resource type="Script" uid="uid://lkqi5uywuomr" path="res://src/scenes/gamification/pizza_rush/pizza_rush_main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://bsbx6vmk8tybq" path="res://src/scenes/gamification/pizza_rush/Oven.tscn" id="2_oven"]
+[ext_resource type="PackedScene" path="res://src/scenes/gamification/pizza_rush/PizzaSpawn.tscn" id="3_spawn"]
+[ext_resource type="Texture2D" uid="uid://cifmdvmwdaium" path="res://src/scenes/gamification/pizza_rush/assets/box.png" id="4_764qj"]
+[ext_resource type="Script" uid="uid://bg8fj6vu7w15d" path="res://src/scenes/gamification/pizza_rush/delivery_area.gd" id="4_delivery"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="6_nav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_delivery"]
+size = Vector2(140, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(40, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(40, 648)
+
+[node name="PizzaRushMain" type="Node2D" unique_id=289647306]
+script = ExtResource("1_main")
+
+[node name="Oven" parent="." unique_id=2023291082 instance=ExtResource("2_oven")]
+position = Vector2(300, 230)
+
+[node name="Oven2" parent="." unique_id=2052231803 instance=ExtResource("2_oven")]
+position = Vector2(640, 230)
+
+[node name="DeliveryArea" type="Area2D" parent="." unique_id=1306420484 groups=["delivery"]]
+position = Vector2(1000, 330)
+input_pickable = false
+script = ExtResource("4_delivery")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryArea" unique_id=1906062887]
+shape = SubResource("RectangleShape2D_delivery")
+
+[node name="Sprite2D" type="Sprite2D" parent="DeliveryArea" unique_id=1011050560]
+position = Vector2(-0.7500243, -0.12500656)
+scale = Vector2(0.28027353, 0.19580077)
+texture = ExtResource("4_764qj")
+
+[node name="PizzaSpawn" parent="." unique_id=240918048 instance=ExtResource("3_spawn")]
+position = Vector2(180, 560)
+
+[node name="PizzaSpawn2" parent="." unique_id=35637063 instance=ExtResource("3_spawn")]
+position = Vector2(480, 560)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=612125704]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=205961132]
+position = Vector2(576, 660)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1176515012]
+position = Vector2(576, -20)
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=394192286]
+position = Vector2(-20, 324)
+shape = SubResource("RectangleShape2D_left")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=115239520]
+position = Vector2(1172, 324)
+shape = SubResource("RectangleShape2D_right")
+
+[node name="TimerGameover" type="Timer" parent="." unique_id=1537267663]
+process_callback = 0
+wait_time = 45.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=402238323]
+
+[node name="LabelPizzaCount" type="Label" parent="CanvasLayer" unique_id=906932401]
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 28
+text = "Pizzas: 0 / 5"
+
+[node name="LabelTimeCounter" type="Label" parent="CanvasLayer" unique_id=505762674]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 12.0
+offset_right = 110.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Tiempo: 45"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=703786717]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -170.0
+offset_right = 260.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=2038298608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1478776459]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "TITULO DE RESULTADO"
+horizontal_alignment = 1
+
+[node name="LabelDesc" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1186988462]
+layout_mode = 2
+text = "mensaje descriptivo"
+horizontal_alignment = 1
+
+[node name="LabelCount" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=630735388]
+layout_mode = 2
+theme_type_variation = &"InfoLabel"
+text = "cantidad pizzas"
+horizontal_alignment = 1
+
+[node name="ButtonNav" parent="CanvasLayer/Panel/VBoxContainer" unique_id=299554946 instance=ExtResource("6_nav")]
+layout_mode = 2
+text = "Volver al menú"
+target_scene = "uid://bkoyuq350gray"

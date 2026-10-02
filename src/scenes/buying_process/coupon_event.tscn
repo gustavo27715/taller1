@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ciujhoaln7odh"]
+
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="1_ogcrn"]
+
+[node name="CouponEvent" type="Control" unique_id=2016714536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=829146367]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -130.0
+offset_right = 260.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="LblTitle" type="Label" parent="VBoxContainer" unique_id=843133305]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Evento de cupones"
+horizontal_alignment = 1
+
+[node name="LblInfo" type="Label" parent="VBoxContainer" unique_id=1629211127]
+layout_mode = 2
+text = "Prepara y entrega las pizzas antes de que termine el tiempo para ganar un cupón de descuento."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonNav" parent="VBoxContainer" unique_id=1890956143 instance=ExtResource("1_ogcrn")]
+layout_mode = 2
+text = "Jugar Pizza Rush"
+target_scene = "uid://bt1crmthdxrf6"
+
+[node name="ButtonNav2" parent="VBoxContainer" unique_id=852020741 instance=ExtResource("1_ogcrn")]
+layout_mode = 2
+text = "Volver al Menú"
+target_scene = "uid://bkoyuq350gray"
