@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://may6kf4w8pxt"]
+
+[ext_resource type="Script" uid="uid://bpph2xa0dno6o" path="res://src/scenes/state_machines/watchman.gd" id="1_watch"]
+[ext_resource type="Script" uid="uid://b5xy2xakv43y4" path="res://src/scenes/state_machines/enemy.gd" id="2_enemy"]
+[ext_resource type="Texture2D" uid="uid://d1btpk1l760yo" path="res://icon.svg" id="3_icon"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="4_chart"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="5_compound"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="6_atomic"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="7_transition"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="8_debugger"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="9_nav"]
+[ext_resource type="Theme" path="res://src/assets/ui/ui_theme.tres" id="ui_theme_1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_watchman"]
+radius = 180.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enemy"]
+radius = 30.0
+
+[node name="WatchmanDemo" type="Node2D" unique_id=1086021201]
+
+[node name="Watchman" type="Node2D" parent="." unique_id=320942153]
+position = Vector2(576, 324)
+script = ExtResource("1_watch")
+
+[node name="Sprite2D" type="Sprite2D" parent="Watchman" unique_id=1769263835]
+texture = ExtResource("3_icon")
+
+[node name="Area2D" type="Area2D" parent="Watchman" unique_id=1474967188]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Watchman/Area2D" unique_id=318245978]
+shape = SubResource("CircleShape2D_watchman")
+
+[node name="StateChart" type="Node" parent="Watchman" unique_id=1350389020]
+script = ExtResource("4_chart")
+
+[node name="Root" type="Node" parent="Watchman/StateChart" unique_id=1457464109]
+script = ExtResource("5_compound")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="Watchman/StateChart/Root" unique_id=1032988164]
+script = ExtResource("6_atomic")
+
+[node name="To Observing" type="Node" parent="Watchman/StateChart/Root/Idle" unique_id=958625008]
+script = ExtResource("7_transition")
+to = NodePath("../../Observing")
+event = &"enemy_entered"
+delay_in_seconds = "0.0"
+
+[node name="Observing" type="Node" parent="Watchman/StateChart/Root" unique_id=1342003258]
+script = ExtResource("6_atomic")
+
+[node name="To Idle" type="Node" parent="Watchman/StateChart/Root/Observing" unique_id=892644127]
+script = ExtResource("7_transition")
+to = NodePath("../../Idle")
+event = &"enemy_exited"
+delay_in_seconds = "0.0"
+
+[node name="Enemy" type="Node2D" parent="." unique_id=1883590535]
+position = Vector2(200, 200)
+script = ExtResource("2_enemy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=452082218]
+modulate = Color(1, 0.4, 0.4, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_icon")
+
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=1850236041]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=132614626]
+shape = SubResource("CircleShape2D_enemy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150494480]
+
+[node name="LblInfo" type="Label" parent="CanvasLayer" unique_id=1268511298]
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 840.0
+offset_bottom = 48.0
+text = "Mueve el mouse: el enemigo (rojo) te sigue. El vigilante lo observa solo dentro de su área."
+
+[node name="StateChartDebugger" parent="CanvasLayer" unique_id=948318593 instance=ExtResource("8_debugger")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = 469.0
+offset_right = 420.0
+offset_bottom = 654.0
+grow_horizontal = 1
+grow_vertical = 1
+initial_node_to_watch = NodePath("../../Watchman/StateChart")
+
+[node name="BtnBack" parent="CanvasLayer" unique_id=492240270 instance=ExtResource("9_nav")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 912.0
+offset_top = 580.0
+offset_right = 1132.0
+offset_bottom = 630.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "Volver al Menú"
+target_scene = "uid://bkoyuq350gray"
+theme = ExtResource("ui_theme_1")
+
+[connection signal="area_entered" from="Watchman/Area2D" to="Watchman" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Watchman/Area2D" to="Watchman" method="_on_area_2d_area_exited"]
+[connection signal="state_processing" from="Watchman/StateChart/Root/Observing" to="Watchman" method="_on_observing_state_processing"]
