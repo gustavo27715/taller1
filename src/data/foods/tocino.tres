@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FoodData" format=3]
+
+[ext_resource type="Script" path="res://src/data/food_data.gd" id="1_food"]
+[ext_resource type="Texture2D" path="res://src/scenes/buying_process/assets/tocino.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_food")
+id = "tocino"
+display_name = "Tocino"
+emoji = "🥓"
+texture = ExtResource("2_tex")
+price = 2500
+health = -2
+speed = 2
+jump = 0
+energy = 6
