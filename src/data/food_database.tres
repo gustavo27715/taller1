@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FoodDatabase" format=3]
+
+[ext_resource type="Script" path="res://src/data/food_database.gd" id="1_db"]
+[ext_resource type="Script" path="res://src/data/food_data.gd" id="2_food"]
+[ext_resource type="Resource" path="res://src/data/foods/carne.tres" id="3_carne"]
+[ext_resource type="Resource" path="res://src/data/foods/queso.tres" id="4_queso"]
+[ext_resource type="Resource" path="res://src/data/foods/lechuga.tres" id="5_lechuga"]
+[ext_resource type="Resource" path="res://src/data/foods/tomate.tres" id="6_tomate"]
+[ext_resource type="Resource" path="res://src/data/foods/champinones.tres" id="7_champinones"]
+[ext_resource type="Resource" path="res://src/data/foods/tocino.tres" id="8_tocino"]
+
+[resource]
+script = ExtResource("1_db")
+foods = Array[ExtResource("2_food")]([ExtResource("3_carne"), ExtResource("4_queso"), ExtResource("5_lechuga"), ExtResource("6_tomate"), ExtResource("7_champinones"), ExtResource("8_tocino")])
