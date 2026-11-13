@@ -1,0 +1,182 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/scenes/buying_process/buy_panel_interactive.gd" id="1_script"]
+[ext_resource type="Script" path="res://src/scenes/buying_process/plate_composition.gd" id="2_plate"]
+[ext_resource type="PackedScene" uid="uid://dxfon1g3qkegv" path="res://src/components/navigation/button_nav.tscn" id="3_nav"]
+[ext_resource type="Theme" path="res://src/assets/ui/ui_theme.tres" id="4_theme"]
+[ext_resource type="Texture2D" path="res://src/scenes/buying_process/assets/plate_empty.png" id="5_base"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1"]
+
+[node name="BuyPanelInteractive" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+script = ExtResource("1_script")
+
+[node name="IngredientScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 560.0
+offset_bottom = 628.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IngredientScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="IngredientScroll/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "🍽️ Crea tu plato"
+horizontal_alignment = 1
+
+[node name="LblBudget" type="Label" parent="IngredientScroll/VBoxContainer"]
+layout_mode = 2
+text = "💰 Presupuesto: $20000  |  Disponible: $20000"
+horizontal_alignment = 1
+
+[node name="IngredientList" type="VBoxContainer" parent="IngredientScroll/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LblTotal" type="Label" parent="IngredientScroll/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"InfoLabel"
+text = "Total: $0"
+horizontal_alignment = 1
+
+[node name="BtnContinue" parent="IngredientScroll/VBoxContainer" instance=ExtResource("3_nav")]
+layout_mode = 2
+text = "Continuar compra"
+target_scene = "res://src/scenes/buying_process/purchase_invoice_interactive.tscn"
+
+[node name="BtnVolver" parent="IngredientScroll/VBoxContainer" instance=ExtResource("3_nav")]
+layout_mode = 2
+text = "Volver al Menú"
+target_scene = "uid://bkoyuq350gray"
+
+[node name="LblHint" type="Label" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 40.0
+offset_right = 1120.0
+offset_bottom = 100.0
+text = "1. Toca una mitad del plato
+2. Elige un alimento de la lista"
+horizontal_alignment = 1
+
+[node name="PlateComposition" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 110.0
+offset_right = 1100.0
+offset_bottom = 510.0
+script = ExtResource("2_plate")
+
+[node name="LeftFlavor" type="TextureRect" parent="PlateComposition"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 230.0
+offset_bottom = 360.0
+pivot_offset = Vector2(85, 170)
+texture = ExtResource("5_base")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="PlateComposition/LeftFlavor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1")
+flat = true
+
+[node name="Selection" type="ColorRect" parent="PlateComposition/LeftFlavor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RightFlavor" type="TextureRect" parent="PlateComposition"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 20.0
+offset_right = 400.0
+offset_bottom = 360.0
+pivot_offset = Vector2(85, 170)
+texture = ExtResource("5_base")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Button" type="Button" parent="PlateComposition/RightFlavor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1")
+flat = true
+
+[node name="Selection" type="ColorRect" parent="PlateComposition/RightFlavor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="LblLeftHint" type="Label" parent="PlateComposition"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 366.0
+offset_right = 260.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 18
+text = "Proteína / Base"
+horizontal_alignment = 1
+
+[node name="LblRightHint" type="Label" parent="PlateComposition"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 366.0
+offset_right = 400.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 18
+text = "Vegetales"
+horizontal_alignment = 1
+
+[node name="LblStats" type="Label" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 525.0
+offset_right = 1120.0
+offset_bottom = 575.0
+theme_type_variation = &"InfoLabel"
+text = "❤️ +0   ⚡ +0   🦘 +0   🔋 +0"
+horizontal_alignment = 1

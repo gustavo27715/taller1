@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FoodData" format=3]
+
+[ext_resource type="Script" path="res://src/data/food_data.gd" id="1_food"]
+[ext_resource type="Texture2D" path="res://src/scenes/buying_process/assets/lechuga.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_food")
+id = "lechuga"
+display_name = "Lechuga"
+emoji = "🥗"
+texture = ExtResource("2_tex")
+price = 800
+health = 4
+speed = 1
+jump = 1
+energy = 1

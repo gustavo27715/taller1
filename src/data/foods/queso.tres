@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FoodData" format=3]
+
+[ext_resource type="Script" path="res://src/data/food_data.gd" id="1_food"]
+[ext_resource type="Texture2D" path="res://src/scenes/buying_process/assets/queso.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_food")
+id = "queso"
+display_name = "Queso"
+emoji = "🧀"
+texture = ExtResource("2_tex")
+price = 2000
+health = 1
+speed = 0
+jump = 1
+energy = 4

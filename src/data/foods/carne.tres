@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FoodData" format=3]
+
+[ext_resource type="Script" path="res://src/data/food_data.gd" id="1_food"]
+[ext_resource type="Texture2D" path="res://src/scenes/buying_process/assets/carne.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_food")
+id = "carne"
+display_name = "Carne"
+emoji = "🥩"
+texture = ExtResource("2_tex")
+price = 3000
+health = 3
+speed = 1
+jump = 2
+energy = 8
